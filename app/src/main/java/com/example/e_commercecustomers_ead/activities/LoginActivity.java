@@ -1,4 +1,4 @@
-package com.example.e_commercecustomers_ead;
+package com.example.e_commercecustomers_ead.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.e_commercecustomers_ead.R;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginActivity extends AppCompatActivity {
