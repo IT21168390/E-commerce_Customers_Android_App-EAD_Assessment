@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SnapBuy</string>
+    <string name="app_name">E-Commerce</string>
     <string name="lbl_filter_search">Filter Search</string>
     <string name="lbl_choose_card">Choose Card</string>
     <string name="msg_welcome_to_e_com">Welcome to SnapBuy</string>
