@@ -31,6 +31,16 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
+        <!-- Product Category -->
+        <TextView
+            android:id="@+id/productCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Product Name"
+            android:textColor="@color/black"
+            android:textSize="14sp"/>
+
         <!-- Product Rating -->
         <RatingBar
             android:id="@+id/productRating"

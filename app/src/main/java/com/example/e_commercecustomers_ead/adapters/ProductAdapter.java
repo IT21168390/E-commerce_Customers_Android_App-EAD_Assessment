@@ -38,6 +38,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         Product product = productList.get(position);
         holder.productName.setText(product.getName());
+        holder.productCategory.setText(product.getCategory());
         holder.productRating.setRating((float) product.getRating());
         holder.productPrice.setText("$" + product.getPrice());
         //holder.productPrice.setText(String.format("$%.2f", product.getPrice()));
@@ -63,6 +64,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
         ImageView productImage;
         TextView productName;
+        TextView productCategory;
         RatingBar productRating;
         TextView productPrice;
         Button buttonViewProduct;
@@ -72,6 +74,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
             productImage = itemView.findViewById(R.id.productImage);
             productName = itemView.findViewById(R.id.productName);
+            productCategory = itemView.findViewById(R.id.productCategory);
             productRating = itemView.findViewById(R.id.productRating);
             productPrice = itemView.findViewById(R.id.productPrice);
             buttonViewProduct = itemView.findViewById(R.id.buttonViewProduct);
