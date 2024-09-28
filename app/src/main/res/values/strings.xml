@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SnapBuy</string>
+    <string name="app_name">E-Commerce</string>
     <string name="lbl_filter_search">Filter Search</string>
     <string name="lbl_choose_card">Choose Card</string>
     <string name="msg_welcome_to_e_com">Welcome to SnapBuy</string>
@@ -34,4 +34,12 @@
     <string name="back_to_order">Back To Order</string>
     <string name="success_icon_desc">Success Icon</string>
     <string name="title_activity_success">SuccessActivity</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="categories_array">
+        <item>All</item>
+        <item>Electronics</item>
+        <item>Clothing</item>
+        <item>Books</item>
+        <item>Home</item>
+    </string-array>
 </resources>

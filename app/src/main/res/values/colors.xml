@@ -30,4 +30,9 @@
     <color name="light_blue_900">#FF01579B</color>
     <color name="light_blue_A400">#FF00B0FF</color>
     <color name="black_overlay">#66000000</color>
+    <color name="background_color">#F5F5F5</color>
+    <color name="textColor">#212121</color>
+    <color name="search_icon_color">#757575</color>
+    <color name="borderColor">#DDDDDD</color>
+    <color name="popupBackground">#FFFFFF</color>
 </resources>
