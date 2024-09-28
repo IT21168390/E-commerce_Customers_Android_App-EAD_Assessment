@@ -29,4 +29,9 @@
     <string name="msg_sign_in_to_continue">Sign in to continue</string>
     <string name="lbl_arriving">Arriving</string>
     <string name="no_internet_connection">No internet connection!</string>
+    <string name="success">Success</string>
+    <string name="thank_you_message">thank you for shopping</string>
+    <string name="back_to_order">Back To Order</string>
+    <string name="success_icon_desc">Success Icon</string>
+    <string name="title_activity_success">SuccessActivity</string>
 </resources>
