@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -147,6 +148,8 @@ public class ProductsFragment extends Fragment {
     private EditText searchBar;
     private Spinner categoryFilter;
 
+    private Button openCategoryButton;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -173,6 +176,18 @@ public class ProductsFragment extends Fragment {
         // Initialize adapter
         productAdapter = new ProductAdapter(getContext(), filteredProductList);
         recyclerView.setAdapter(productAdapter);
+
+
+        // Initialize the button
+        openCategoryButton = view.findViewById(R.id.open_category_button);
+
+        // Set button click listener
+        openCategoryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openCategoryFragment();
+            }
+        });
 
         // Add search functionality
         searchBar.addTextChangedListener(new TextWatcher() {
@@ -223,5 +238,16 @@ public class ProductsFragment extends Fragment {
 
         // Notify the adapter about data changes
         productAdapter.notifyDataSetChanged();
+    }
+
+    private void openCategoryFragment() {
+        // Create an instance of CategoryFragment
+        CategoryFragment categoryFragment = new CategoryFragment();
+
+        // Replace the fragment
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, categoryFragment)
+                .addToBackStack(null) // Add to backstack so the user can navigate back
+                .commit();
     }
 }
