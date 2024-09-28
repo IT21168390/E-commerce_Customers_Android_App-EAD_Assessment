@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +21,8 @@ import java.util.List;
 
 public class CartFragment extends Fragment {
 
+    private ImageView backButton;
+
     private RecyclerView cartRecyclerView;
     private CartAdapter cartAdapter;
     private List<Product> cartItems;
@@ -31,6 +34,7 @@ public class CartFragment extends Fragment {
 
         cartRecyclerView = view.findViewById(R.id.cartRecyclerView);
         cartRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        backButton = view.findViewById(R.id.backButton);
 
         // Get cart items from CartManager
         cartItems = CartManager.getInstance().getCartItems();
@@ -38,6 +42,12 @@ public class CartFragment extends Fragment {
         // Set up adapter
         cartAdapter = new CartAdapter(cartItems);
         cartRecyclerView.setAdapter(cartAdapter);
+
+        // Back button listener
+        backButton.setOnClickListener(v -> {
+            // Navigate back to the previous fragment
+            requireActivity().getSupportFragmentManager().popBackStack();
+        });
 
         return view;
     }

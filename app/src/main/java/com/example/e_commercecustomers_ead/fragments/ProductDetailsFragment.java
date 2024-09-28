@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,8 +22,9 @@ import com.example.e_commercecustomers_ead.services.CartManager;
 public class ProductDetailsFragment extends Fragment {
 
     private ImageView productImage, backButton;
-    private TextView productTitle, productCategory, productDescription, productPrice, productRating, vendorName;
+    private TextView productTitle, productCategory, productDescription, productPrice, vendorName;
     private Button addToCartButton;
+    RatingBar productRating;
     private Product product;
 
     public ProductDetailsFragment() {
@@ -77,7 +79,7 @@ public class ProductDetailsFragment extends Fragment {
             productCategory.setText(product.getCategory());
             productDescription.setText(product.getDescription());
             productPrice.setText(String.format("$%.2f", product.getPrice()));
-            productRating.setText(String.format("Rating: %.1f", product.getRating()));
+            productRating.setRating((float) product.getRating());
             vendorName.setText(product.getVendorName());
 
             // Set initial button state
