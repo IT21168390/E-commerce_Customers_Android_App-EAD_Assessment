@@ -36,10 +36,10 @@
             android:id="@+id/productCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="6dp"
             android:text="Product Name"
             android:textColor="@color/black"
-            android:textSize="14sp"/>
+            android:textSize="14sp" />
 
         <!-- Product Rating -->
         <RatingBar
@@ -72,6 +72,7 @@
             android:layout_marginTop="12dp"
             android:backgroundTint="@color/material_dynamic_primary0"
             android:text="View"
+            android:textSize="14sp"
             android:textColor="@color/white" />
     </LinearLayout>
 
