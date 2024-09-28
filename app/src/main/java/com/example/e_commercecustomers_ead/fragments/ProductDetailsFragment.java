@@ -20,9 +20,9 @@ import com.example.e_commercecustomers_ead.services.CartManager;
 
 public class ProductDetailsFragment extends Fragment {
 
-    private ImageView productImage;
+    private ImageView productImage, backButton;
     private TextView productTitle, productCategory, productDescription, productPrice, productRating, vendorName;
-    private Button addToCartButton, backButton;
+    private Button addToCartButton;
     private Product product;
 
     public ProductDetailsFragment() {

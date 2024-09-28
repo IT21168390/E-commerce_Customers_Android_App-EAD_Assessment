@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +21,8 @@ import java.util.List;
 
 public class CategoryFragment extends Fragment {
 
+    private ImageView backButton;
+
     private RecyclerView categoryRecyclerView;
     private CategoryAdapter categoryAdapter;
     private List<Category> categoryList;
@@ -33,6 +36,7 @@ public class CategoryFragment extends Fragment {
         // Initialize RecyclerView
         categoryRecyclerView = view.findViewById(R.id.category_recycler_view);
         categoryRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        backButton = view.findViewById(R.id.backButton);
 
         // Initialize category data
         categoryList = new ArrayList<>();
@@ -48,6 +52,13 @@ public class CategoryFragment extends Fragment {
         // Set adapter
         categoryAdapter = new CategoryAdapter(categoryList, getContext());
         categoryRecyclerView.setAdapter(categoryAdapter);
+
+
+        // Back button listener
+        backButton.setOnClickListener(v -> {
+            // Navigate back to the previous fragment
+            requireActivity().getSupportFragmentManager().popBackStack();
+        });
 
         return view;
     }
