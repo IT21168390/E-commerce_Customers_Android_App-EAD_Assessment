@@ -5,8 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RatingBar;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,11 +22,12 @@ import com.example.e_commercecustomers_ead.services.CartManager;
 
 public class ProductDetailsFragment extends Fragment {
 
-    private ImageView productImage, backButton;
-    private TextView productTitle, productCategory, productDescription, productPrice, vendorName;
-    private Button addToCartButton;
-    RatingBar productRating;
+    private ImageView productImage;
+    private TextView productTitle, productCategory, productDescription, productPrice, productRating, vendorName, productStock;
+    private Button addToCartButton, backButton;
     private Product product;
+    // Variable for quantity input
+    private NumberPicker quantityPicker;
 
     public ProductDetailsFragment() {
         // Required empty public constructor
@@ -60,6 +62,7 @@ public class ProductDetailsFragment extends Fragment {
 
         // Initialize other UI components...
         addToCartButton = view.findViewById(R.id.addToCartButton);
+        quantityPicker = view.findViewById(R.id.quantityPicker);
 
         // Initialize UI components
         productImage = view.findViewById(R.id.productImage);
@@ -67,6 +70,7 @@ public class ProductDetailsFragment extends Fragment {
         productCategory = view.findViewById(R.id.productCategory);
         productDescription = view.findViewById(R.id.productDescription);
         productPrice = view.findViewById(R.id.productPrice);
+        productStock = view.findViewById(R.id.productStock);
         productRating = view.findViewById(R.id.productRating);
         vendorName = view.findViewById(R.id.vendorName);
         addToCartButton = view.findViewById(R.id.addToCartButton);
@@ -79,8 +83,11 @@ public class ProductDetailsFragment extends Fragment {
             productCategory.setText(product.getCategory());
             productDescription.setText(product.getDescription());
             productPrice.setText(String.format("$%.2f", product.getPrice()));
-            productRating.setRating((float) product.getRating());
+            productRating.setText(String.format("Rating: %.1f", product.getRating()));
             vendorName.setText(product.getVendorName());
+            productStock.setText("Stock: " + product.getStock());
+            quantityPicker.setMinValue(1);
+            quantityPicker.setMaxValue(product.getStock());
 
             // Set initial button state
             if (cartManager.isInCart(product)) {
@@ -93,7 +100,8 @@ public class ProductDetailsFragment extends Fragment {
         // Add to cart button listener
         addToCartButton.setOnClickListener(v -> {
             if (!cartManager.isInCart(product)) {
-                cartManager.addToCart(product);
+                int quantity = quantityPicker.getValue();
+                cartManager.addToCart(product, quantity);
                 addToCartButton.setText("View Cart");
                 Toast.makeText(getContext(), "Product added to cart!", Toast.LENGTH_SHORT).show();
             } else {

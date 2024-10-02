@@ -1,48 +1,30 @@
 <!--<?xml version="1.0" encoding="utf-8"?>-->
-<!--<RelativeLayout
-xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
 <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
 <!--    xmlns:tools="http://schemas.android.com/tools"-->
 <!--    android:layout_width="match_parent"-->
 <!--    android:layout_height="match_parent"-->
 <!--    tools:context=".fragments.ProductsFragment">-->
 
-<!--&lt;!&ndash;
-&lt;!&ndash; Search bar &ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;
-<EditText&ndash;&gt;-->
-<!--&lt;!&ndash;
-android:id="@+id/searchBar"&ndash;&gt;-->
-<!--&lt;!&ndash;
-android:layout_width="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;
-android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;
-android:hint="Search products"&ndash;&gt;-->
-<!--&lt;!&ndash;
-android:layout_margin="16dp"&ndash;&gt;-->
-<!--&lt;!&ndash;
-android:padding="8dp"&ndash;&gt;-->
-<!--&lt;!&ndash;
-android:layout_alignParentTop="true" />&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;
-android:background="@drawable/search_bar_background"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;    &lt;!&ndash; Search bar &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;    <EditText&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/searchBar"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:hint="Search products"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_margin="16dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:padding="8dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_alignParentTop="true" />&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;        android:background="@drawable/search_bar_background"&ndash;&gt;&ndash;&gt;-->
 
 
-<!--&lt;!&ndash;
-&lt;!&ndash; Category filter &ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;
-<Spinner&ndash;&gt;-->
-<!--&lt;!&ndash;
-android:id="@+id/categoryFilter"&ndash;&gt;-->
-<!--&lt;!&ndash;
-android:layout_width="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;
-android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;
-android:layout_below="@id/searchBar"&ndash;&gt;-->
-<!--&lt;!&ndash;
-android:layout_margin="16dp" />&ndash;&gt;-->
+<!--&lt;!&ndash;    &lt;!&ndash; Category filter &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;    <Spinner&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/categoryFilter"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_below="@id/searchBar"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_margin="16dp" />&ndash;&gt;-->
 <!--    &lt;!&ndash; Search bar with rounded corners, padding, and a search icon &ndash;&gt;-->
 <!--    <LinearLayout-->
 <!--        android:id="@+id/searchLayout"-->
@@ -143,19 +125,7 @@ android:layout_margin="16dp" />&ndash;&gt;-->
             android:textSize="16sp"
             android:padding="8dp"
             android:inputType="text" />
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/open_category_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Select Category"
-                android:layout_centerInParent="true" />
-        </LinearLayout>
     </LinearLayout>
-
 
     <!-- Category filter with a drop-down arrow icon and rounded background -->
     <RelativeLayout
@@ -163,23 +133,29 @@ android:layout_margin="16dp" />&ndash;&gt;-->
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/searchLayout"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="10dp"
+        android:layout_margin="16dp"
         android:background="@drawable/rounded_background"
-        android:elevation="4dp"
-        android:padding="8dp">
+        android:padding="8dp"
+        android:elevation="4dp">
 
         <Spinner
             android:id="@+id/categoryFilter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
+            android:spinnerMode="dropdown"
             android:popupBackground="@color/popupBackground"
-            android:spinnerMode="dropdown" />
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp" />
 
+        <!-- Dropdown arrow icon -->
+        <ImageView
+            android:id="@+id/dropdownIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_arrow_drop_down"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:tint="@color/textColor" />
     </RelativeLayout>
 
     <!-- RecyclerView for displaying products -->
@@ -188,6 +164,7 @@ android:layout_margin="16dp" />&ndash;&gt;-->
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/categoryFilterLayout"
-        android:padding="10dp"
+        android:padding="16dp"
+        android:layout_marginBottom="48dp"
         android:scrollbars="vertical" />
 </RelativeLayout>

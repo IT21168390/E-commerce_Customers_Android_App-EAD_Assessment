@@ -17,9 +17,18 @@ import java.util.List;
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder> {
 
     private List<Product> cartItems;
+    private OnItemRemovedListener onItemRemovedListener;
 
-    public CartAdapter(List<Product> cartItems) {
+    public interface OnItemRemovedListener {
+        void onItemRemoved(int position);
+    }
+
+    /*public CartAdapter(List<Product> cartItems) {
         this.cartItems = cartItems;
+    }*/
+    public CartAdapter(List<Product> cartItems, OnItemRemovedListener listener) {
+        this.cartItems = cartItems;
+        this.onItemRemovedListener = listener;
     }
 
     @NonNull
@@ -43,6 +52,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
         // Optionally, you can set the product image
         holder.productImage.setImageResource(product.getImageResource());
+
+        // Set delete button click listener
+        holder.deleteButton.setOnClickListener(v -> {
+            onItemRemovedListener.onItemRemoved(position);
+        });
     }
 
     @Override
@@ -55,6 +69,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
         public TextView productName, productPrice, productRating;
         public ImageView productImage;
+        public ImageView deleteButton;
 
         public CartViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -62,6 +77,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             productPrice = itemView.findViewById(R.id.cartProductPrice);
             productRating = itemView.findViewById(R.id.cartProductRating);
             productImage = itemView.findViewById(R.id.cartProductImage);
+            deleteButton = itemView.findViewById(R.id.deleteButton);
         }
     }
 }

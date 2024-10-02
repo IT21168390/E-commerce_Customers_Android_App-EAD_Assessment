@@ -45,6 +45,13 @@
                 android:layout_height="wrap_content"
                 android:text="Rating"
                 android:layout_marginTop="4dp" />
+
+            <ImageView
+                android:id="@+id/deleteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_delete_24"
+                android:layout_gravity="end" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

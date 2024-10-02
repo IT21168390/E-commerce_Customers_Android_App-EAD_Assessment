@@ -10,16 +10,20 @@ public class Product implements Serializable {
     private double rating;
     private double price;
     private int imageResource;
+    //private String imageUrl;
+    private int stock;
     private boolean isInCart;  // New field to track cart status
 
-    public Product(String name, String category, String description, String vendorName, double rating, double price, int imageResource) {
+    public Product(String name, String category, String description, String vendorName, double rating, double price, int imageResource, int stock) {
         this.name = name;
         this.category = category;
         this.description = description;
         this.vendorName = vendorName;
         this.rating = rating;
         this.price = price;
-        this.imageResource = imageResource;this.isInCart = false;  // Initially not in cart
+        this.imageResource = imageResource;
+        this.isInCart = false;  // Initially not in cart
+        this.stock = stock;
     }
 
     public String getName() {
@@ -44,6 +48,10 @@ public class Product implements Serializable {
 
     public double getPrice() {
         return price;
+    }
+
+    public int getStock() {
+        return stock;
     }
 
     public int getImageResource() {
